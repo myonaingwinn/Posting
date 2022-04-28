@@ -1,24 +1,13 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## This is testing app of the Rails-7 API and React.js
 
-Things you may want to cover:
+- After cloning this repository, run `bundle install`
 
-* Ruby version
+- Start sever with, `rails s`, or `rails server` or
+  `bin/rails s`, or `bin/rails server`
 
-* System dependencies
+- And then, goto _frontend_ folder and install packages,
+  `cd frontend && npm install`
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- That's all!
