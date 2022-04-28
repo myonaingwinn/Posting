@@ -37,6 +37,7 @@ function Post(props: any) {
     <input
       type="text"
       value={title}
+      placeholder="Enter title"
       onChange={(e) => setTitle(e.target.value)}
       className="form-control text-start"
     />
@@ -46,6 +47,7 @@ function Post(props: any) {
     <textarea
       className="form-control text-start"
       value={body}
+      placeholder="Enter body text"
       onChange={(e) => setBody(e.target.value)}
     ></textarea>
   );
@@ -56,29 +58,33 @@ function Post(props: any) {
       className="btn btn-primary"
       onClick={(e) => submitHandler(e)}
     >
-      Submit
+      Update
     </button>
   );
 
   return (
-    <div>
-      <div className="row">
-        <div className="col-8 mb-2">
-          {isEditing ? editableTitle : titleElem}
+    <div className="card shadow-sm p-1 mb-2 bg-body rounded">
+      <div className="card-body">
+        <div className="row">
+          <div className="col-8 mb-2">
+            {isEditing ? editableTitle : titleElem}
+          </div>
+          <div className="col-4">
+            <ButtonGroup
+              post_id={props.post.id}
+              dispatch={props.dispatch}
+              toggleEditForm={props.toggleEditForm}
+            />
+          </div>
         </div>
-        <div className="col-4">
-          <ButtonGroup
-            post_id={props.post.id}
-            dispatch={props.dispatch}
-            toggleEditForm={props.toggleEditForm}
-          />
+        <div className="row">
+          <div className="col-8 mb-2">
+            {isEditing ? editableBody : bodyElem}
+          </div>
         </div>
-      </div>
-      <div className="row">
-        <div className="col-8 mb-2">{isEditing ? editableBody : bodyElem}</div>
-      </div>
-      <div className="row">
-        <div className="col-12">{isEditing ? submitButton : ""}</div>
+        <div className="row">
+          <div className="col-8">{isEditing ? submitButton : ""}</div>
+        </div>
       </div>
     </div>
   );

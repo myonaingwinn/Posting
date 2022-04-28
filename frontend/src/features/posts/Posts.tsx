@@ -37,13 +37,19 @@ function Posts() {
 
   let contents;
   if (status !== Status.UpToDate) {
-    contents = <div>{status}</div>;
+    contents = (
+      <div>
+        Status : <span className="text-danger">{status}</span>
+      </div>
+    );
   } else {
     contents = (
       <div className="container">
-        <div className="card">
+        <div className="card shadow p-3 mb-5 bg-body rounded">
           <div className="card-body">
-            <h3>{status}</h3>
+            <div className="shadow-none p-2 mb-1 bg-light rounded">
+              Status : <span className="text-success">{status}</span>
+            </div>
             <PostForm />
             {posts &&
               posts.length > 0 &&
@@ -65,12 +71,7 @@ function Posts() {
       </div>
     );
   }
-  return (
-    <div>
-      <h1>Posts</h1>
-      {contents}
-    </div>
-  );
+  return <div className="mt-4">{contents}</div>;
 }
 
 export default Posts;
